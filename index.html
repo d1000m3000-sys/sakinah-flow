@@ -1,34 +1,38 @@
-import React, { useState } from "react";
+<!DOCTYPE html>
+<html lang="en" id="htmlRoot">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sakinah Flow</title>
 
-export default function App() { const [page, setPage] = useState("home");
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-const NavButton = ({ label, value }) => ( <button onClick={() => setPage(value)} className="flex-1 p-3 text-sm" > {label} </button> );
+<div class="app">
+  <header>
+    <h1>Sakinah Flow</h1>
+    <button onclick="toggleLang()">AR / EN</button>
+  </header>
 
-return ( <div className="min-h-screen bg-slate-900 text-white flex flex-col"> {/* Content */} <div className="flex-1 p-4"> {page === "home" && <Home />} {page === "explore" && <Explore />} {page === "sleep" && <Sleep />} {page === "breathing" && <Breathing />} {page === "stats" && <Stats />} {page === "profile" && <Profile />} </div>
+  <main id="content"></main>
 
-{/* Bottom Nav */}
-  <div className="flex border-t border-slate-700 bg-slate-800">
-    <NavButton label="Home" value="home" />
-    <NavButton label="Explore" value="explore" />
-    <NavButton label="Sleep" value="sleep" />
-    <NavButton label="Breath" value="breathing" />
-    <NavButton label="Stats" value="stats" />
-    <NavButton label="Me" value="profile" />
-  </div>
+  <nav>
+    <button onclick="navigate('home')">🏠</button>
+    <button onclick="navigate('explore')">🔍</button>
+    <button onclick="navigate('sleep')">🌙</button>
+    <button onclick="navigate('profile')">👤</button>
+  </nav>
 </div>
 
-); }
+<script src="app.js"></script>
 
-function Home() { return ( <div> <h1 className="text-xl mb-4">Good day 🌿</h1> <button className="w-full bg-indigo-500 p-4 rounded-2xl mb-4"> Start Calm Session </button> <div className="grid grid-cols-2 gap-3"> <Card title="Quick Calm" /> <Card title="Reduce Anxiety" /> <Card title="Focus" /> <Card title="Sleep" /> </div> </div> ); }
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('service-worker.js');
+}
+</script>
 
-function Explore() { return ( <div> <h1 className="text-xl mb-4">Explore</h1> <div className="grid gap-3"> <Card title="Meditation" /> <Card title="Yoga" /> <Card title="Breathing" /> </div> </div> ); }
-
-function Sleep() { return ( <div> <h1 className="text-xl mb-4">Sleep Sounds</h1> <Card title="Rain (Coming Soon)" /> <Card title="Ocean (Coming Soon)" /> </div> ); }
-
-function Breathing() { return ( <div className="flex flex-col items-center justify-center h-full"> <div className="w-32 h-32 bg-indigo-500 rounded-full animate-pulse mb-4"></div> <p>Inhale... Exhale...</p> </div> ); }
-
-function Stats() { return ( <div> <h1 className="text-xl mb-4">Stats</h1> <p>Sessions: 0</p> <p>Minutes: 0</p> </div> ); }
-
-function Profile() { return ( <div> <h1 className="text-xl mb-4">Profile</h1> <div className="bg-indigo-500 p-4 rounded-2xl"> Upgrade to Premium 🌟 </div> </div> ); }
-
-function Card({ title }) { return ( <div className="bg-slate-800 p-4 rounded-2xl"> {title} </div> ); }
+</body>
+</html>
