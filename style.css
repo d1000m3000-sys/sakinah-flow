@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: #0F172A;
+  color: white;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  background: #1E293B;
+}
+
+main {
+  flex: 1;
+  padding: 15px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  background: #1E293B;
+  padding: 10px;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background: #6366F1;
+  color: white;
+  cursor: pointer;
+}
+
+.card {
+  background: #1E293B;
+  padding: 15px;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+
+.paywall {
+  text-align: center;
+}
